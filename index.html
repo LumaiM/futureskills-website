@@ -5,54 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FutureSkills ICT & Digital Skills Centre | Empowering Zambian Educators</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
-            --primary-blue: #1a5f9e;
-            --secondary-blue: #2d8ae7;
-            --accent-orange: #f57c00;
-            --accent-green: #2e7d32;
+            --primary-blue: #0a2472;
+            --accent-orange: #f97316;
             --light-gray: #f5f7fa;
-            --medium-gray: #e0e0e0;
             --dark-gray: #333333;
-            --text-color: #424242;
             --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
             --radius: 8px;
             --transition: all 0.3s ease;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
+            color: var(--dark-gray);
+            background: var(--white);
         }
         
         h1, h2, h3, h4 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
-            color: var(--dark-gray);
-            line-height: 1.3;
         }
         
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Header & Navigation */
+        /* ===== HEADER ===== */
         header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -62,13 +52,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            padding: 15px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
+            text-decoration: none;
+            cursor: pointer;
         }
         
         .logo-icon {
@@ -77,19 +69,18 @@
         }
         
         .logo-text {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 24px;
             color: var(--primary-blue);
         }
         
-        .logo-text span {
-            color: var(--accent-orange);
-        }
+        .logo-text span { color: var(--accent-orange); }
         
+        /* ===== NAVIGATION LINKS - ALL WORKING ===== */
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
         
@@ -97,14 +88,12 @@
             text-decoration: none;
             color: var(--dark-gray);
             font-weight: 500;
+            padding: 8px 0;
             transition: var(--transition);
             position: relative;
-            cursor: pointer;
         }
         
-        .nav-links a:hover {
-            color: var(--primary-blue);
-        }
+        .nav-links a:hover { color: var(--primary-blue); }
         
         .nav-links a.active {
             color: var(--primary-blue);
@@ -114,38 +103,37 @@
         .nav-links a.active::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -2px;
             left: 0;
             width: 100%;
             height: 3px;
-            background-color: var(--accent-orange);
+            background: var(--accent-orange);
             border-radius: 2px;
         }
         
         .teacher-highlight {
-            background-color: rgba(245, 124, 0, 0.1);
+            background: rgba(249,115,22,0.1);
             color: var(--accent-orange);
-            padding: 8px 16px;
+            padding: 4px 12px;
             border-radius: 20px;
+            font-size: 13px;
             font-weight: 600;
-            margin-left: 5px;
-            font-size: 14px;
+            margin-left: 6px;
+            display: inline-block;
         }
         
         .nav-cta {
-            background-color: var(--accent-orange);
+            background: var(--accent-orange);
             color: white;
             padding: 10px 24px;
             border-radius: var(--radius);
             font-weight: 600;
-            transition: var(--transition);
             text-decoration: none;
-            display: inline-block;
-            cursor: pointer;
+            transition: var(--transition);
         }
         
         .nav-cta:hover {
-            background-color: #e07100;
+            background: #ea580c;
             transform: translateY(-2px);
         }
         
@@ -158,78 +146,88 @@
             cursor: pointer;
         }
         
-        /* PWA Install Banner */
-        .install-banner {
-            background: var(--primary-blue);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            max-width: 400px;
-            margin: 0 auto;
-            z-index: 2000;
-            border-radius: 50px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
             display: none;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
+            background: var(--white);
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        .install-banner.show {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
+        .mobile-menu.open { display: block; }
+        
+        .mobile-nav-links {
+            list-style: none;
         }
         
-        .install-banner span {
-            font-size: 14px;
-            flex: 1;
+        .mobile-nav-links li { margin-bottom: 15px; }
+        
+        .mobile-nav-links a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 18px;
+            display: block;
+            padding: 8px 0;
         }
         
-        .install-btn {
+        .mobile-nav-links a:hover { color: var(--primary-blue); }
+        
+        .mobile-cta {
+            display: block;
             background: var(--accent-orange);
             color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 30px;
+            padding: 12px;
+            border-radius: var(--radius);
+            text-align: center;
             font-weight: 600;
-            font-size: 14px;
-            cursor: pointer;
-            transition: var(--transition);
-            white-space: nowrap;
+            text-decoration: none;
+            margin-top: 10px;
         }
         
-        .install-btn:hover {
-            background: #e07100;
-            transform: scale(1.05);
-        }
-        
-        .close-banner {
-            background: rgba(255,255,255,0.2);
-            border: none;
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            background: var(--accent-orange);
             color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            font-size: 16px;
+            padding: 14px 30px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            border: none;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             transition: var(--transition);
         }
         
-        .close-banner:hover {
-            background: rgba(255,255,255,0.3);
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
         
-        /* Hero Section */
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 14px 30px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: inline-block;
+            border: 2px solid white;
+            transition: var(--transition);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        
+        /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(rgba(26, 95, 158, 0.8), rgba(45, 138, 231, 0.8)), url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background: linear-gradient(rgba(10,36,114,0.85), rgba(30,58,138,0.85)), 
+                        url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -262,49 +260,10 @@
             flex-wrap: wrap;
         }
         
-        .btn-primary {
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 16px 32px;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: var(--transition);
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn-primary:hover {
-            background-color: #e07100;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            padding: 16px 32px;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: var(--transition);
-            display: inline-block;
-            border: 2px solid white;
-        }
-        
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-        }
-        
-        /* Features Section */
-        .features {
-            padding: 100px 0;
-            background-color: var(--light-gray);
-        }
+        /* ===== SECTIONS ===== */
+        .section-padding { padding: 80px 0; }
+        .bg-light { background: var(--light-gray); }
+        .bg-dark { background: var(--primary-blue); color: white; }
         
         .section-title {
             text-align: center;
@@ -313,62 +272,53 @@
         
         .section-title h2 {
             font-size: 36px;
-            margin-bottom: 15px;
             color: var(--primary-blue);
+            margin-bottom: 15px;
         }
         
         .section-title p {
             font-size: 18px;
             max-width: 700px;
             margin: 0 auto;
-            color: var(--text-color);
+            color: #666;
         }
         
+        .bg-dark .section-title h2 { color: white; }
+        .bg-dark .section-title p { color: rgba(255,255,255,0.8); }
+        
+        /* ===== FEATURES GRID ===== */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 30px;
         }
         
         .feature-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
+            background: var(--white);
             padding: 40px 30px;
+            border-radius: var(--radius);
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
         
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-icon { font-size: 48px; color: var(--primary-blue); margin-bottom: 20px; }
+        .feature-card h3 { font-size: 22px; margin-bottom: 10px; }
         
-        .feature-icon {
-            font-size: 48px;
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-        }
-        
-        .feature-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
-        
-        /* Image Gallery */
-        .image-gallery {
+        /* ===== GALLERY ===== */
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
-            margin: 50px 0;
         }
         
         .gallery-item {
             border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            height: 280px;
             position: relative;
-            height: 300px;
+            box-shadow: var(--shadow);
         }
         
         .gallery-item img {
@@ -378,9 +328,7 @@
             transition: transform 0.5s;
         }
         
-        .gallery-item:hover img {
-            transform: scale(1.05);
-        }
+        .gallery-item:hover img { transform: scale(1.05); }
         
         .gallery-caption {
             position: absolute;
@@ -393,114 +341,52 @@
             font-weight: 500;
         }
         
-        /* Course Category Images */
-        .category-header {
-            background: linear-gradient(rgba(26, 95, 158, 0.7), rgba(45, 138, 231, 0.7)), url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 60px 0;
-            margin-bottom: 40px;
-            border-radius: var(--radius);
-            color: white;
-            text-align: center;
-        }
-        
-        .category-header h3 {
-            color: white;
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-        
-        .category-header p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-        
-        /* Target Groups */
-        .target-groups {
-            padding: 100px 0;
-        }
-        
-        .audience-cards {
+        /* ===== AUDIENCE CARDS ===== */
+        .audience-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 25px;
         }
         
         .audience-card {
-            background-color: var(--white);
-            border-radius: var(--radius);
+            background: var(--white);
             padding: 30px;
+            border-radius: var(--radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
             border-top: 4px solid var(--primary-blue);
             position: relative;
+            transition: var(--transition);
         }
         
-        .audience-card.primary {
-            border-top-color: var(--accent-orange);
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .audience-card:hover {
-            transform: translateY(-8px);
-        }
-        
-        .audience-card.primary:hover {
-            transform: translateY(-8px) scale(1.05);
-        }
-        
-        .audience-icon {
-            font-size: 40px;
-            color: var(--primary-blue);
-            margin-bottom: 20px;
-        }
-        
-        .audience-card.primary .audience-icon {
-            color: var(--accent-orange);
-        }
-        
-        .audience-card h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-        }
+        .audience-card:hover { transform: translateY(-8px); }
+        .audience-card.primary { border-top-color: var(--accent-orange); }
+        .audience-icon { font-size: 40px; color: var(--primary-blue); margin-bottom: 15px; }
+        .audience-card.primary .audience-icon { color: var(--accent-orange); }
+        .audience-card h3 { font-size: 22px; margin-bottom: 10px; }
         
         .primary-badge {
             position: absolute;
             top: -12px;
             right: 20px;
-            background-color: var(--accent-orange);
+            background: var(--accent-orange);
             color: white;
-            padding: 5px 15px;
+            padding: 4px 14px;
             border-radius: 20px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
         }
         
-        /* Learning Model */
-        .learning-model {
-            padding: 100px 0;
-            background-color: var(--light-gray);
-        }
-        
-        .model-diagram {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
+        /* ===== LEARNING MODEL ===== */
         .model-step {
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
-            width: 100%;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            gap: 30px;
         }
         
         .step-number {
-            background-color: var(--primary-blue);
+            background: var(--primary-blue);
             color: white;
             width: 60px;
             height: 60px;
@@ -511,38 +397,30 @@
             font-size: 24px;
             font-weight: 700;
             flex-shrink: 0;
-            margin-right: 30px;
         }
         
         .step-content {
-            background-color: var(--white);
-            padding: 25px;
+            background: var(--white);
+            padding: 25px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            flex-grow: 1;
+            flex: 1;
         }
         
-        .step-content h3 {
-            margin-bottom: 10px;
-            color: var(--primary-blue);
-        }
+        .step-content h3 { color: var(--primary-blue); margin-bottom: 8px; }
         
-        /* Courses Section */
-        .courses {
-            padding: 100px 0;
-        }
-        
+        /* ===== COURSES ===== */
         .course-tabs {
             display: flex;
             justify-content: center;
+            gap: 10px;
             margin-bottom: 40px;
             flex-wrap: wrap;
-            gap: 10px;
         }
         
         .tab-btn {
             padding: 12px 24px;
-            background-color: var(--light-gray);
+            background: var(--light-gray);
             border: none;
             border-radius: var(--radius);
             font-weight: 600;
@@ -551,56 +429,38 @@
         }
         
         .tab-btn.active {
-            background-color: var(--primary-blue);
+            background: var(--primary-blue);
             color: white;
         }
         
-        .tab-btn:hover:not(.active) {
-            background-color: var(--medium-gray);
-        }
+        .tab-btn:hover:not(.active) { background: #ddd; }
         
         .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
             display: none;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
         
-        .course-grid.active {
-            display: grid;
-        }
+        .course-grid.active { display: grid; }
         
         .course-card {
-            background-color: var(--white);
+            background: var(--white);
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
         
-        .course-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .course-header {
-            background-color: var(--primary-blue);
-            color: white;
-            padding: 20px;
-        }
-        
-        .course-header h3 {
-            color: white;
-            margin-bottom: 5px;
-        }
-        
-        .course-body {
-            padding: 25px;
-        }
+        .course-card:hover { transform: translateY(-8px); }
+        .course-image { height: 200px; overflow: hidden; }
+        .course-image img { width: 100%; height: 100%; object-fit: cover; }
+        .course-header { background: var(--primary-blue); color: white; padding: 20px; }
+        .course-header h3 { color: white; }
+        .course-body { padding: 20px; }
         
         .course-skills {
-            list-style-type: none;
-            margin-top: 15px;
+            list-style: none;
+            margin-top: 10px;
         }
         
         .course-skills li {
@@ -610,55 +470,12 @@
             align-items: center;
         }
         
-        .course-skills li:last-child {
-            border-bottom: none;
-        }
+        .course-skills li i { color: #059669; margin-right: 10px; }
         
-        .course-skills li i {
-            color: var(--accent-green);
-            margin-right: 10px;
-        }
-        
-        /* Course Images */
-        .course-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .course-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .course-card:hover .course-image img {
-            transform: scale(1.1);
-        }
-        
-        /* Compliance Section */
-        .compliance {
-            padding: 80px 0;
-            background-color: var(--primary-blue);
-            color: white;
-            text-align: center;
-        }
-        
-        .compliance h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .compliance p {
-            max-width: 800px;
-            margin: 0 auto 30px;
-            font-size: 18px;
-            opacity: 0.9;
-        }
-        
-        /* Page Content */
+        /* ===== PAGE HEADERS ===== */
         .page-header {
-            background: linear-gradient(rgba(26, 95, 158, 0.9), rgba(26, 95, 158, 0.9)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background: linear-gradient(rgba(10,36,114,0.9), rgba(10,36,114,0.9)), 
+                        url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -666,149 +483,10 @@
             text-align: center;
         }
         
-        .page-header h1 {
-            font-size: 42px;
-            color: white;
-            margin-bottom: 15px;
-        }
+        .page-header h1 { font-size: 42px; color: white; margin-bottom: 15px; }
+        .page-header p { font-size: 20px; max-width: 700px; margin: 0 auto; opacity: 0.9; }
         
-        .page-header p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        .page-content {
-            padding: 80px 0;
-        }
-        
-        .content-section {
-            margin-bottom: 60px;
-        }
-        
-        .content-section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--primary-blue);
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--accent-orange);
-            display: inline-block;
-        }
-        
-        .content-section p {
-            margin-bottom: 15px;
-            font-size: 17px;
-        }
-        
-        .content-section ul {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-        
-        .content-section li {
-            margin-bottom: 10px;
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .value-card {
-            background-color: var(--light-gray);
-            padding: 30px;
-            border-radius: var(--radius);
-            text-align: center;
-            border-left: 5px solid var(--accent-orange);
-        }
-        
-        .value-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 15px;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-        
-        .contact-info {
-            background-color: var(--light-gray);
-            padding: 30px;
-            border-radius: var(--radius);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-        
-        .contact-icon {
-            background-color: var(--primary-blue);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .contact-form {
-            background-color: var(--light-gray);
-            padding: 30px;
-            border-radius: var(--radius);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--medium-gray);
-            border-radius: var(--radius);
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-blue);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .form-select {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--medium-gray);
-            border-radius: var(--radius);
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            background-color: white;
-        }
-        
-        /* About Page Image */
+        /* ===== ABOUT ===== */
         .about-image {
             width: 100%;
             height: 400px;
@@ -818,243 +496,284 @@
             box-shadow: var(--shadow);
         }
         
-        .about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .about-image img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
         
-        /* Location Map Placeholder */
-        .map-placeholder {
-            background-color: var(--light-gray);
-            height: 300px;
+        .value-card {
+            background: var(--light-gray);
+            padding: 30px;
             border-radius: var(--radius);
+            border-left: 5px solid var(--accent-orange);
+        }
+        
+        .value-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
+        
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background: var(--primary-blue);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 30px 0;
-            border: 2px dashed var(--primary-blue);
+            font-size: 20px;
+            flex-shrink: 0;
         }
         
-        /* Footer */
+        .contact-form {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: var(--radius);
+        }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        
+        textarea.form-control { min-height: 120px; resize: vertical; }
+        
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            background: white;
+        }
+        
+        /* ===== FOOTER ===== */
         footer {
-            background-color: var(--dark-gray);
+            background: var(--dark-gray);
             color: white;
-            padding: 70px 0 30px;
+            padding: 60px 0 30px;
         }
         
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 40px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         
         .footer-logo {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 24px;
-            color: white;
-            margin-bottom: 20px;
         }
         
-        .footer-logo span {
-            color: var(--accent-orange);
-        }
-        
-        .footer-heading {
-            font-size: 20px;
-            margin-bottom: 25px;
-            color: white;
-        }
+        .footer-logo span { color: var(--accent-orange); }
         
         .footer-links {
-            list-style-type: none;
+            list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 12px;
-        }
+        .footer-links li { margin-bottom: 10px; }
         
         .footer-links a {
-            color: #cccccc;
+            color: #ccc;
             text-decoration: none;
             transition: var(--transition);
-            cursor: pointer;
         }
         
-        .footer-links a:hover {
-            color: var(--accent-orange);
-            padding-left: 5px;
+        .footer-links a:hover { color: var(--accent-orange); padding-left: 5px; }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
         }
+        
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover { color: var(--accent-orange); transform: translateY(-3px); }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid #444;
             color: #aaa;
-            font-size: 15px;
+            font-size: 14px;
         }
         
-        /* Mobile Responsiveness */
-        @media (max-width: 992px) {
-            .hero h1, .page-header h1 {
-                font-size: 36px;
-            }
-            
-            .features-grid, .audience-cards, .image-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links, .nav-cta {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1, .page-header h1 {
-                font-size: 32px;
-            }
-            
-            .hero-subtitle, .page-header p {
-                font-size: 18px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .features-grid, .audience-cards, .values-grid, .image-gallery {
-                grid-template-columns: 1fr;
-            }
-            
-            .audience-card.primary {
-                transform: scale(1);
-            }
-            
-            .section-title h2 {
-                font-size: 30px;
-            }
-            
-            .model-step {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .step-number {
-                margin-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            .gallery-item {
-                height: 250px;
-            }
-            
-            .install-banner {
-                left: 15px;
-                right: 15px;
-                bottom: 15px;
-                padding: 12px;
-            }
-        }
-        
-        /* Mobile Menu */
-        .mobile-menu {
+        /* ===== WHATSAPP BUTTON ===== */
+        .whatsapp-btn {
             position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            background-color: var(--white);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transform: translateY(-100%);
-            opacity: 0;
-            transition: var(--transition);
+            bottom: 90px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             z-index: 999;
-        }
-        
-        .mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-        }
-        
-        .mobile-nav-links {
-            list-style-type: none;
-        }
-        
-        .mobile-nav-links li {
-            margin-bottom: 20px;
-        }
-        
-        .mobile-nav-links a {
             text-decoration: none;
-            color: var(--dark-gray);
-            font-weight: 500;
-            font-size: 18px;
-            display: block;
-            padding: 10px 0;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        
+        /* ===== INSTALL BANNER ===== */
+        .install-banner {
+            display: none;
+            background: var(--primary-blue);
+            color: white;
+            padding: 15px 20px;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 450px;
+            width: 90%;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+        
+        .install-banner.show { display: flex; }
+        .install-banner span { font-size: 14px; flex: 1; }
+        
+        .install-btn {
+            background: var(--accent-orange);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .install-btn:hover { background: #ea580c; }
+        
+        .close-banner {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 16px;
             cursor: pointer;
         }
         
-        .mobile-nav-links a.active {
-            color: var(--primary-blue);
-            font-weight: 600;
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 32px; }
+            .hero { padding: 60px 0; }
+            .section-title h2 { font-size: 30px; }
+            .model-step { flex-direction: column; text-align: center; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item { height: 220px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 32px; }
+            .page-header p { font-size: 18px; }
+            .about-image { height: 250px; }
+            .whatsapp-btn { width: 50px; height: 50px; font-size: 24px; bottom: 80px; }
+            .install-banner { flex-wrap: wrap; justify-content: center; padding: 12px 15px; }
+            .install-banner span { font-size: 13px; text-align: center; }
+            .audience-grid { grid-template-columns: 1fr; }
+            .course-grid { grid-template-columns: 1fr; }
+            .values-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; align-items: center; }
         }
         
-        .mobile-cta {
-            display: block;
-            background-color: var(--accent-orange);
-            color: white;
-            padding: 15px;
-            border-radius: var(--radius);
-            text-align: center;
-            font-weight: 600;
-            margin-top: 20px;
-            text-decoration: none;
-        }
-        
-        /* Hide all pages initially */
-        .page {
-            display: none;
-        }
-        
-        .page.active {
-            display: block;
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .section-padding { padding: 50px 0; }
+            .step-number { width: 50px; height: 50px; font-size: 20px; }
         }
     </style>
 </head>
 <body>
-    <!-- Install App Banner -->
-    <div class="install-banner" id="installBanner">
-        <span>📱 Install FutureSkills app for easy access & offline learning!</span>
+
+    <!-- ===== WHATSAPP BUTTON ===== -->
+    <a href="https://wa.me/260966826320" class="whatsapp-btn" target="_blank" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== INSTALL BANNER ===== -->
+    <div class="install-banner show" id="installBanner">
+        <span>📱 Install FutureSkills app</span>
         <button class="install-btn" id="installBtn">Install</button>
         <button class="close-banner" id="closeBanner">✕</button>
     </div>
 
-    <!-- Header -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container header-container">
-            <div class="logo">
-                <div class="logo-icon"><i class="fas fa-laptop-code"></i></div>
-                <div class="logo-text">Future<span>Skills</span></div>
-            </div>
+            <a href="#home" class="logo">
+                <span class="logo-icon"><i class="fas fa-chalkboard-teacher"></i></span>
+                <span class="logo-text">Future<span>Skills</span></span>
+            </a>
             
             <nav class="desktop-nav">
                 <div class="nav-links">
-                    <a class="nav-link" data-page="home">Home</a>
-                    <a class="nav-link" data-page="teachers">For Teachers <span class="teacher-highlight">Primary Focus</span></a>
-                    <a class="nav-link" data-page="courses">Courses</a>
-                    <a class="nav-link" data-page="about">About Us</a>
-                    <a class="nav-link" data-page="contact">Contact Us</a>
+                    <a href="#home" class="active">Home</a>
+                    <a href="#teachers">For Teachers <span class="teacher-highlight">Primary Focus</span></a>
+                    <a href="#courses">Courses</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact Us</a>
                 </div>
             </nav>
             
-            <a class="nav-cta" data-page="contact">Book a Visit</a>
+            <a href="#contact" class="nav-cta">Enroll Now</a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -1064,39 +783,38 @@
         <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <ul class="mobile-nav-links">
-                <li><a class="nav-link" data-page="home">Home</a></li>
-                <li><a class="nav-link" data-page="teachers">For Teachers</a></li>
-                <li><a class="nav-link" data-page="courses">Courses</a></li>
-                <li><a class="nav-link" data-page="about">About Us</a></li>
-                <li><a class="nav-link" data-page="contact">Contact Us</a></li>
-                <li><a class="mobile-cta" data-page="contact">Book a Visit</a></li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#teachers">For Teachers</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#contact" class="mobile-cta">Enroll Now</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- Home Page -->
-    <div class="page active" id="home-page">
-        <!-- Hero Section -->
-        <section class="hero">
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home">
+        <!-- Hero -->
+        <div class="hero">
             <div class="container">
                 <h1>Empowering Zambian Teachers with Future-Ready Digital Skills</h1>
                 <p class="hero-subtitle">A guided learning centre providing the practical ICT competence, confidence, and exposure you need to excel in the Enhanced Competency-Based Curriculum (ECBC).</p>
                 <div class="hero-buttons">
-                    <a class="btn-primary" data-page="teachers">Explore Our Program for Teachers</a>
-                    <a class="btn-secondary" data-page="courses">View All Digital Skills Courses</a>
+                    <a href="#teachers" class="btn-primary">Explore Our Program for Teachers</a>
+                    <a href="#courses" class="btn-secondary">View All Digital Skills Courses</a>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Image Gallery -->
-        <section class="features" style="padding-top: 50px;">
+        <!-- Gallery -->
+        <div class="section-padding bg-light">
             <div class="container">
                 <div class="section-title">
                     <h2>Our State-of-the-Art Facilities</h2>
                     <p>Located in Chingola, Zambia - A modern ICT training environment designed for practical learning</p>
                 </div>
-                
-                <div class="image-gallery">
+                <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1469&q=80" alt="FutureSkills ICT Centre Exterior">
                         <div class="gallery-caption">FutureSkills ICT Centre - Chingola, Zambia</div>
@@ -1107,741 +825,425 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Features Section -->
-        <section class="features">
+        <!-- Features -->
+        <div class="section-padding">
             <div class="container">
                 <div class="section-title">
                     <h2>Why FutureSkills?</h2>
                     <p>We bridge the gap between policy and practice by providing accessible, guided, and practical ICT skill development.</p>
                 </div>
-                
                 <div class="features-grid">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                         <h3>ECBC-Aligned</h3>
-                        <p>Curriculum specifically designed to support Zambia's Enhanced Competency-Based Curriculum requirements for compulsory ICT education.</p>
+                        <p>ICT Training specifically designed to support Zambia's Enhanced Competency-Based Curriculum requirements.</p>
                     </div>
-                    
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
                         <h3>Guided & Supported</h3>
-                        <p>Not just online courses - get mentorship, peer collaboration, and facilitator assistance in modern computer laboratories.</p>
+                        <p>Get mentorship, peer collaboration, and facilitator assistance in modern computer laboratories.</p>
                     </div>
-                    
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-certificate"></i></div>
                         <h3>Globally Recognized Certificates</h3>
-                        <p>Earn certificates from world-class platforms while benefiting from local support and practical application.</p>
+                        <p>Earn certificates from world-class platforms with local support and practical application.</p>
                     </div>
-                    
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-laptop-house"></i></div>
                         <h3>Modern Infrastructure</h3>
-                        <p>Access to fully-equipped computer laboratories and learning resources unavailable in many schools across Zambia.</p>
+                        <p>Access to fully-equipped computer laboratories and learning resources.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Target Audience -->
-        <section class="target-groups">
+        <!-- Audience -->
+        <div class="section-padding bg-light">
             <div class="container">
                 <div class="section-title">
                     <h2>Who We Serve</h2>
                     <p>FutureSkills serves multiple segments, with teachers as our primary focus and mission.</p>
                 </div>
-                
-                <div class="audience-cards">
+                <div class="audience-grid">
                     <div class="audience-card primary">
                         <div class="primary-badge">Primary Focus</div>
                         <div class="audience-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                         <h3>Teachers</h3>
-                        <p>ICT teachers and non-ICT teachers requiring digital competence for ECBC implementation. Our comprehensive program builds confidence and practical skills.</p>
+                        <p>ICT teachers and non-ICT teachers requiring digital competence for ECBC implementation.</p>
                     </div>
-                    
                     <div class="audience-card">
                         <div class="audience-icon"><i class="fas fa-briefcase"></i></div>
                         <h3>Corporate Employees</h3>
-                        <p>Office productivity, data skills, and emerging technology training for workplace efficiency and career advancement.</p>
+                        <p>Office productivity, data skills, cyber security awareness, E-Commerce, e-conference and emerging technology training for workplace efficiency.</p>
                     </div>
-                    
                     <div class="audience-card">
                         <div class="audience-icon"><i class="fas fa-graduation-cap"></i></div>
                         <h3>Students</h3>
-                        <p>Skills-focused post-secondary learners seeking practical, employable digital competencies alongside formal education.</p>
+                        <p>Skills-focused post-secondary learners seeking practical, employable digital competencies.</p>
                     </div>
-                    
                     <div class="audience-card">
                         <div class="audience-icon"><i class="fas fa-users"></i></div>
                         <h3>Community Members</h3>
-                        <p>Youth and adults seeking employable ICT skills for personal development and improved economic opportunities.</p>
+                        <p>Youth and adults seeking employable ICT skills for economic opportunities.</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
         <!-- Learning Model -->
-        <section class="learning-model">
+        <div class="section-padding">
             <div class="container">
                 <div class="section-title">
                     <h2>Our Learning Model</h2>
-                    <p>More Than Just Online Learning. We provide a complete guided, practical, and supported ecosystem.</p>
+                    <p>More Than Just hosted Online Learning. We provide a complete guided, practical, and supported ecosystem.</p>
                 </div>
-                
-                <div class="model-diagram">
-                    <div class="model-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>You + Your Goals</h3>
-                            <p>Begin by identifying your specific skill gaps and professional objectives, whether for ECBC compliance, career advancement, or personal development.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="model-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Four Pillars of Support</h3>
-                            <p>Our unique ecosystem combines <strong>World-Class Online Content</strong> from global platforms with <strong>Modern Lab Infrastructure</strong>, <strong>Expert Facilitators & Mentors</strong>, and <strong>Peer Collaboration</strong> opportunities.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="model-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Practical Competence + Certification</h3>
-                            <p>Graduate with practical skills you can immediately apply, plus globally recognized certificates that validate your expertise.</p>
-                        </div>
+                <div class="model-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>You + Your Goals</h3>
+                        <p>Begin by identifying your specific skill gaps and professional objectives.</p>
                     </div>
                 </div>
-                
-                <div style="text-align: center; margin-top: 50px; font-style: italic; color: var(--primary-blue); padding: 20px; background-color: rgba(26, 95, 158, 0.05); border-radius: var(--radius);">
+                <div class="model-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Four Pillars of Support</h3>
+                        <p>World-Class Online Content + Modern Lab Infrastructure + Expert Facilitators + Peer Collaboration.</p>
+                    </div>
+                </div>
+                <div class="model-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Practical Competence + Certification</h3>
+                        <p>Graduate with practical skills and globally recognized certificates.</p>
+                    </div>
+                </div>
+                <div style="text-align:center;margin-top:40px;font-style:italic;color:var(--primary-blue);padding:20px;background:rgba(10,36,114,0.05);border-radius:var(--radius);">
                     <p><strong>Important:</strong> We are a facilitated learning centre. We provide the environment, guidance, and resources; you achieve certification through our partnered global platforms.</p>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Compliance Section -->
-        <section class="compliance">
-            <div class="container">
-                <h2>Operating with Clarity & Compliance</h2>
-                <p>FutureSkills ICT & Digital Skills Centre operates as a facilitated digital learning centre. We leverage globally certified platforms for course delivery and certification, ensuring quality and regulatory compliance while supporting Zambia's national ICT skills objectives.</p>
-                <a class="btn-primary" data-page="about">Learn More About Our Model</a>
+        <!-- Compliance -->
+        <div class="section-padding bg-dark">
+            <div class="container" style="text-align:center;">
+                <h2 style="color:white;font-size:36px;margin-bottom:20px;">Operating with Clarity & Compliance</h2>
+                <p style="max-width:800px;margin:0 auto 30px;font-size:18px;opacity:0.9;">FutureSkills ICT & Digital Skills Centre operates as a facilitated digital learning centre. We leverage globally certified platforms for course delivery and certification, ensuring quality and regulatory compliance.</p>
+                <a href="#about" class="btn-primary">Learn More About Our Model</a>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- For Teachers Page -->
-    <div class="page" id="teachers-page">
-        <section class="page-header">
+    <!-- ===== TEACHERS SECTION ===== -->
+    <section id="teachers">
+        <div class="page-header">
             <div class="container">
                 <h1>Your Pathway to ICT Confidence and Compliance</h1>
                 <p>Addressing the urgent need for digitally competent teachers under Zambia's Enhanced Competency-Based Curriculum (ECBC)</p>
             </div>
-        </section>
+        </div>
         
-        <section class="page-content">
+        <div class="section-padding">
             <div class="container">
-                <div class="content-section">
+                <div class="section-title" style="text-align:left;margin-bottom:40px;">
                     <h2>The Challenge for Zambian Teachers</h2>
-                    <p>The integration of ICT as a compulsory subject in Zambian schools has created an urgent need for:</p>
-                    <ul>
-                        <li><strong>Digitally competent teachers</strong> across all subject areas</li>
-                        <li><strong>Practical exposure</strong> to emerging ICT fields</li>
-                        <li><strong>Continuous professional development</strong> outside traditional colleges</li>
-                        <li><strong>Affordable, structured, and supportive learning environments</strong></li>
-                    </ul>
-                    
-                    <p>Despite policy progress, many teachers face constraints such as:</p>
-                    <ul>
-                        <li>Limited access to modern computer laboratories</li>
-                        <li>Inadequate opportunities for advanced ICT training</li>
-                        <li>Lack of guided self-learning environments</li>
-                        <li>High personal costs for independent online learning</li>
-                    </ul>
                 </div>
+                <p style="font-size:17px;margin-bottom:15px;">The integration of ICT as a compulsory subject in Zambian schools has created an urgent need for:</p>
+                <ul style="margin-left:20px;margin-bottom:20px;">
+                    <li><strong>Digitally competent teachers</strong> across all subject areas</li>
+                    <li><strong>Practical exposure</strong> to emerging ICT fields</li>
+                    <li><strong>Continuous professional development</strong> outside traditional colleges</li>
+                    <li><strong>Affordable, structured, and supportive learning environments</strong></li>
+                </ul>
+                <p style="font-size:17px;margin-bottom:15px;">Despite policy progress, many teachers face constraints such as:</p>
+                <ul style="margin-left:20px;margin-bottom:20px;">
+                    <li>Limited access to modern computer laboratories</li>
+                    <li>Inadequate opportunities for advanced ICT training</li>
+                    <li>Lack of guided self-learning environments</li>
+                    <li>High personal costs for independent online learning</li>
+                </ul>
                 
-                <div class="content-section">
-                    <h2>How FutureSkills Addresses These Gaps</h2>
-                    <p>FutureSkills ICT & Digital Skills Centre addresses these gaps by offering a district-level, teacher-centered ICT learning ecosystem that blends self-paced online study with structured local support.</p>
+                <div style="margin-top:50px;">
+                    <div class="section-title" style="text-align:left;margin-bottom:30px;">
+                        <h2>How FutureSkills Addresses These Gaps</h2>
+                    </div>
+                    <p style="font-size:17px;">FutureSkills offers a district-level, teacher-centered ICT learning ecosystem that blends hosted self-paced online study with structured local support.</p>
                     
-                    <div class="model-diagram" style="margin-top: 40px;">
-                        <div class="model-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h3>Assess Your Skill Gap</h3>
-                                <p>Identify whether you are an ICT teacher needing advanced skills or a non-ICT teacher requiring foundational digital competence for ECBC implementation.</p>
-                            </div>
+                    <div style="margin-top:40px;">
+                        <div class="section-title" style="text-align:left;margin-bottom:20px;">
+                            <h2>Teacher Upskilling Tracks</h2>
                         </div>
                         
-                        <div class="model-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h3>Access Curated Learning Paths</h3>
-                                <p>Follow specially designed tracks with courses from global platforms like Coursera, edX, and Cisco NetAcad, curated for the Zambian educational context.</p>
-                            </div>
+                        <div style="background:var(--light-gray);padding:30px;border-radius:var(--radius);margin-bottom:20px;border-left:4px solid var(--primary-blue);">
+                            <h3 style="color:var(--primary-blue);margin-bottom:10px;">For Computer Science Teachers (Form 1-5)</h3>
+                            <p>Equip yourself with advanced skills to confidently teach the full Computer Science and ICT curriculum including: <strong>Cybersecurity, Ethical Hacking, Cloud Computing, Artificial Intelligence, Python Programming, Networking, and Database Management.</strong></p>
                         </div>
                         
-                        <div class="model-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h3>Learn in Guided Environment</h3>
-                                <p>Study in our modern computer labs with facilitator assistance, peer collaboration, and practical assignments that translate theory to classroom practice.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="model-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h3>Earn Global Certification</h3>
-                                <p>Complete courses and earn certificates from globally recognized platforms while building practical competence for your classroom.</p>
-                            </div>
+                        <div style="background:var(--light-gray);padding:30px;border-radius:var(--radius);border-left:4px solid var(--accent-orange);">
+                            <h3 style="color:var(--primary-blue);margin-bottom:10px;">For Non-ICT Subject Teachers</h3>
+                            <p>Develop the digital competence to integrate technology into your teaching: <strong>AI Classroom integration, Digital Literacy, Office Productivity tools, Classroom Technology Integration, Educational Software, Creating Digital Learning Materials, and Online Assessment Strategies.</strong></p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="content-section">
-                    <h2>Teacher Upskilling Tracks</h2>
-                    
-                    <div class="category-header" style="background-image: linear-gradient(rgba(26, 95, 158, 0.8), rgba(45, 138, 231, 0.8)), url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1374&q=80');">
-                        <h3>For Computer Science Teachers (Form 1-5)</h3>
-                        <p>Equip yourself with advanced skills to confidently teach the full ICT curriculum</p>
-                    </div>
-                    
-                    <div class="course-grid active" style="display: grid; margin-top: 20px;">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity">
-                            </div>
-                            <div class="course-header">
-                                <h3>Advanced ICT Teacher Track</h3>
-                                <p>For Computer Science & ICT Subject Teachers</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Master the skills needed to teach ICT from Form 1 to Form 5 with confidence, covering both foundational and emerging technologies.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> <strong>Cybersecurity Fundamentals</strong> - Teach students how to stay safe online</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Ethical Hacking Basics</strong> - Introduce concepts of system security</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Cloud Computing</strong> - Prepare students for modern IT infrastructure</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Artificial Intelligence (AI) Concepts</strong> - Demystify AI for learners</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Python Programming</strong> - From basics to application development</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Networking Essentials</strong> - Build and understand computer networks</li>
-                                    <li><i class="fas fa-check-circle"></i> <strong>Database Management</strong> - SQL and data organization</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="category-header" style="margin-top: 40px; background-image: linear-gradient(rgba(26, 95, 158, 0.8), rgba(45, 138, 231, 0.8)), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');">
-                        <h3>For Non-ICT Subject Teachers</h3>
-                        <p>Integrate technology into your teaching for enhanced learning outcomes</p>
-                    </div>
-                    
-                    <div class="course-grid active" style="display: grid; margin-top: 20px;">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1422&q=80" alt="Digital Integration">
-                            </div>
-                            <div class="course-header">
-                                <h3>Digital Integration Track</h3>
-                                <p>For All Subject Teachers (Maths, Science, Languages, etc.)</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Learn to seamlessly integrate ICT into your subject teaching to enhance learning outcomes.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Digital Literacy Fundamentals</li>
-                                    <li><i class="fas fa-check-circle"></i> Classroom Technology Integration Strategies</li>
-                                    <li><i class="fas fa-check-circle"></i> Creating Interactive Digital Learning Materials</li>
-                                    <li><i class="fas fa-check-circle"></i> Online Assessment Tools & Methods</li>
-                                    <li><i class="fas fa-check-circle"></i> Microsoft Office for Educators (Word, Excel, PowerPoint)</li>
-                                    <li><i class="fas fa-check-circle"></i> Educational Apps and Software</li>
-                                    <li><i class="fas fa-check-circle"></i> Using Multimedia in Teaching</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="course-grid active" style="display: grid; margin-top: 30px;">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1588072432836-e100327ed50e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80" alt="ECBC Implementation">
-                            </div>
-                            <div class="course-header">
-                                <h3>ECBC Implementation Track</h3>
-                                <p>For Non-ICT Subject Teachers</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Specifically designed to help subject teachers integrate ICT into their classrooms effectively.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Digital Pedagogy & Teaching Methods</li>
-                                    <li><i class="fas fa-check-circle"></i> Classroom Technology Integration including ethical use of AI in Lesson Prep and Teaching</li>
-                                    <li><i class="fas fa-check-circle"></i> Educational Software & Tools</li>
-                                    <li><i class="fas fa-check-circle"></i> Creating Digital Learning Materials</li>
-                                    <li><i class="fas fa-check-circle"></i> Microsoft Office for Educators</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="ICT Teacher Enhancement">
-                            </div>
-                            <div class="course-header">
-                                <h3>ICT Teacher Enhancement</h3>
-                                <p>For ICT Subject Teachers</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Advanced skills to stay ahead of curriculum demands and emerging technologies.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Advanced Programming Concepts</li>
-                                    <li><i class="fas fa-check-circle"></i> Networking for Schools</li>
-                                    <li><i class="fas fa-check-circle"></i> Cybersecurity Fundamentals</li>
-                                    <li><i class="fas fa-check-circle"></i> Database Management Basics</li>
-                                    <li><i class="fas fa-check-circle"></i> Emerging Technologies in Education</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin-top: 50px;">
-                    <a class="btn-primary" data-page="contact">Schedule a Consultation for Your School</a>
+                <div style="text-align:center;margin-top:50px;">
+                    <a href="#contact" class="btn-primary">Enroll Now</a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- Courses Page -->
-    <div class="page" id="courses-page">
-        <section class="page-header">
+    <!-- ===== COURSES SECTION ===== -->
+    <section id="courses">
+        <div class="page-header">
             <div class="container">
                 <h1>Courses & Skills Areas</h1>
                 <p>From foundational digital literacy to advanced emerging technologies - all with guided support and practical application</p>
             </div>
-        </section>
+        </div>
         
-        <section class="page-content">
+        <div class="section-padding">
             <div class="container">
-                <div class="content-section">
+                <div class="section-title" style="text-align:left;margin-bottom:30px;">
                     <h2>Our Skills Development Approach</h2>
-                    <p>FutureSkills offers a structured pathway from basic digital literacy to specialized emerging technologies. All courses are delivered through curated global platforms with local facilitation, practical assignments, and peer collaboration in our modern computer laboratories.</p>
-                    
-                    <div class="course-tabs">
-                        <button class="tab-btn active" data-tab="foundational">Foundational ICT Skills</button>
-                        <button class="tab-btn" data-tab="advanced">Advanced & Emerging Skills</button>
-                        <button class="tab-btn" data-tab="teacher">Teacher Upskilling</button>
-                    </div>
-                    
-                    <div class="course-grid active" id="foundational">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Computer Fundamentals">
-                            </div>
-                            <div class="course-header">
-                                <h3>Digital Literacy & Fundamentals</h3>
-                                <p>Essential for beginners & all professionals</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Master the essential computer skills needed for modern education and workplaces.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Computer Fundamentals & Operations</li>
-                                    <li><i class="fas fa-check-circle"></i> Microsoft Word (Document Processing)</li>
-                                    <li><i class="fas fa-check-circle"></i> Microsoft Excel (Basic to Advanced)</li>
-                                    <li><i class="fas fa-check-circle"></i> Microsoft PowerPoint (Presentations)</li>
-                                    <li><i class="fas fa-check-circle"></i> Internet & Email Proficiency</li>
-                                    <li><i class="fas fa-check-circle"></i> File Management & Digital Organization</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="course-grid" id="advanced">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity">
-                            </div>
-                            <div class="course-header">
-                                <h3>Cybersecurity & Ethical Hacking</h3>
-                                <p>Protecting digital assets and infrastructure</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Learn to secure systems and understand ethical hacking principles.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Cybersecurity Fundamentals</li>
-                                    <li><i class="fas fa-check-circle"></i> Ethical Hacking Principles</li>
-                                    <li><i class="fas fa-check-circle"></i> Network Security Essentials</li>
-                                    <li><i class="fas fa-check-circle"></i> Cyber Threat Awareness</li>
-                                    <li><i class="fas fa-check-circle"></i> Security Best Practices</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Programming">
-                            </div>
-                            <div class="course-header">
-                                <h3>Programming & Data Science</h3>
-                                <p>Building the future with code and data</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Develop in-demand skills in programming, databases, and data analysis.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Python Programming Fundamentals</li>
-                                    <li><i class="fas fa-check-circle"></i> SQL & Database Management</li>
-                                    <li><i class="fas fa-check-circle"></i> Data Science Foundations</li>
-                                    <li><i class="fas fa-check-circle"></i> Data Visualization Techniques</li>
-                                    <li><i class="fas fa-check-circle"></i> Basic Algorithm Design</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80" alt="Cloud Computing">
-                            </div>
-                            <div class="course-header">
-                                <h3>Cloud Computing & AI</h3>
-                                <p>The future of IT infrastructure</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Understand and utilize cloud-based systems and emerging technologies.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Cloud Computing Fundamentals</li>
-                                    <li><i class="fas fa-check-circle"></i> Cloud Service Models (IaaS, PaaS, SaaS)</li>
-                                    <li><i class="fas fa-check-circle"></i> Cloud Deployment Strategies</li>
-                                    <li><i class="fas fa-check-circle"></i> Introduction to AI & Machine Learning</li>
-                                    <li><i class="fas fa-check-circle"></i> Internet of Things (IoT) Basics</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1434&q=80" alt="Networking">
-                            </div>
-                            <div class="course-header">
-                                <h3>Computer Networking</h3>
-                                <p>Connect the world</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Learn how computers communicate and networks are built.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Networking Fundamentals</li>
-                                    <li><i class="fas fa-check-circle"></i> IP Addressing & Subnetting</li>
-                                    <li><i class="fas fa-check-circle"></i> Network Protocols</li>
-                                    <li><i class="fas fa-check-circle"></i> Router & Switch Configuration</li>
-                                    <li><i class="fas fa-check-circle"></i> Wireless Networking</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="course-grid" id="teacher">
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80" alt="Teacher Training">
-                            </div>
-                            <div class="course-header">
-                                <h3>Digital Competence for Educators</h3>
-                                <p>ECBC-aligned teacher development</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Specifically designed to help teachers integrate ICT into teaching and learning.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Digital Pedagogy & Teaching Methods</li>
-                                    <li><i class="fas fa-check-circle"></i> Classroom Technology Integration</li>
-                                    <li><i class="fas fa-check-circle"></i> Educational Software & Digital Tools</li>
-                                    <li><i class="fas fa-check-circle"></i> Creating Digital Learning Materials</li>
-                                    <li><i class="fas fa-check-circle"></i> Online Assessment Strategies</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Subject Integration">
-                            </div>
-                            <div class="course-header">
-                                <h3>Advanced ICT for Subject Teachers</h3>
-                                <p>Specialized tracks for different subjects</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Subject-specific ICT integration skills for enhanced teaching effectiveness.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> ICT in Science & Mathematics Teaching</li>
-                                    <li><i class="fas fa-check-circle"></i> Digital Tools for Language Instruction</li>
-                                    <li><i class="fas fa-check-circle"></i> Social Sciences & Humanities Technology</li>
-                                    <li><i class="fas fa-check-circle"></i> Special Needs Education Technology</li>
-                                    <li><i class="fas fa-check-circle"></i> School Administration Systems</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity Teaching">
-                            </div>
-                            <div class="course-header">
-                                <h3>Cybersecurity for Teachers</h3>
-                                <p>Teach students to stay safe online</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Equip yourself to teach cybersecurity concepts to students from Form 1-5.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Cybersecurity Fundamentals for Educators</li>
-                                    <li><i class="fas fa-check-circle"></i> Teaching Online Safety</li>
-                                    <li><i class="fas fa-check-circle"></i> Ethical Hacking Concepts for Classrooms</li>
-                                    <li><i class="fas fa-check-circle"></i> Data Protection & Privacy</li>
-                                    <li><i class="fas fa-check-circle"></i> School Network Security Basics</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image">
-                                <img src="https://images.unsplash.com/photo-1526379095098-400073c0d377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1331&q=80" alt="Python Teaching">
-                            </div>
-                            <div class="course-header">
-                                <h3>Python Programming for Teachers</h3>
-                                <p>Teach coding with confidence</p>
-                            </div>
-                            <div class="course-body">
-                                <p>Master Python programming to effectively teach coding from Form 1 to Form 5.</p>
-                                <ul class="course-skills">
-                                    <li><i class="fas fa-check-circle"></i> Python Basics & Syntax</li>
-                                    <li><i class="fas fa-check-circle"></i> Teaching Programming Concepts</li>
-                                    <li><i class="fas fa-check-circle"></i> Creating Coding Exercises</li>
-                                    <li><i class="fas fa-check-circle"></i> Project-Based Learning in Python</li>
-                                    <li><i class="fas fa-check-circle"></i> Assessing Student Code</li>
-                                </ul>
-                            </div>
+                </div>
+                <p style="font-size:17px;margin-bottom:40px;">FutureSkills offers a structured pathway from basic digital literacy to specialized emerging technologies. All courses are delivered through curated global platforms with local facilitation, practical assignments, and peer collaboration in our modern computer laboratories.</p>
+                
+                <!-- Tabs -->
+                <div class="course-tabs">
+                    <button class="tab-btn active" data-tab="foundational">Foundational ICT Skills</button>
+                    <button class="tab-btn" data-tab="advanced">Advanced & Emerging Skills</button>
+                    <button class="tab-btn" data-tab="teacher">Teacher Upskilling</button>
+                </div>
+                
+                <!-- Foundational -->
+                <div class="course-grid active" id="foundational">
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Computer Fundamentals"></div>
+                        <div class="course-header"><h3>Digital Literacy & Fundamentals</h3></div>
+                        <div class="course-body">
+                            <p>Master the essential computer skills needed for modern education and workplaces.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Computer Fundamentals & Operations</li>
+                                <li><i class="fas fa-check-circle"></i> Microsoft Word (Document Processing)</li>
+                                <li><i class="fas fa-check-circle"></i> Microsoft Excel (Basic to Advanced)</li>
+                                <li><i class="fas fa-check-circle"></i> Microsoft PowerPoint (Presentations)</li>
+                                <li><i class="fas fa-check-circle"></i> Internet & Email Proficiency</li>
+                                <li><i class="fas fa-check-circle"></i> File Management & Digital Organization</li>
+								<li><i class="fas fa-check-circle"></i> Artificial Intelligence in Classrooms</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="content-section">
-                    <h2>Our Learning Methodology</h2>
-                    <p>FutureSkills operates as a learning facilitation centre, not a traditional training college. Our approach combines:</p>
-                    
-                    <div class="features-grid" style="margin-top: 30px;">
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-                            <h3>Self-Paced Online Learning</h3>
-                            <p>Access curated courses from global platforms with flexible scheduling to fit your commitments.</p>
+                <!-- Advanced -->
+                <div class="course-grid" id="advanced">
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity"></div>
+                        <div class="course-header"><h3>Cybersecurity & Ethical Hacking</h3></div>
+                        <div class="course-body">
+                            <p>Learn to secure systems and understand ethical hacking principles.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Cybersecurity Fundamentals</li>
+                                <li><i class="fas fa-check-circle"></i> Ethical Hacking Principles</li>
+                                <li><i class="fas fa-check-circle"></i> Network Security Essentials</li>
+                                <li><i class="fas fa-check-circle"></i> Cyber Threat Awareness</li>
+                            </ul>
                         </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
-                            <h3>Modern Computer Laboratories</h3>
-                            <p>Practice in fully-equipped labs with latest software and hardware under guided supervision.</p>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Programming"></div>
+                        <div class="course-header"><h3>Programming & Data Science</h3></div>
+                        <div class="course-body">
+                            <p>Develop in-demand skills in programming, databases, and data analysis.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Python Programming Fundamentals</li>
+                                <li><i class="fas fa-check-circle"></i> SQL & Database Management</li>
+                                <li><i class="fas fa-check-circle"></i> Data Science Foundations</li>
+                                <li><i class="fas fa-check-circle"></i> Data Visualization Techniques</li>
+                            </ul>
                         </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-users"></i></div>
-                            <h3>Group-Based Practical Assignments</h3>
-                            <p>Collaborate with peers on real-world projects that build practical, applicable skills.</p>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1472&q=80" alt="Cloud Computing"></div>
+                        <div class="course-header"><h3>Cloud Computing & AI</h3></div>
+                        <div class="course-body">
+                            <p>Understand and utilize cloud-based systems and emerging technologies.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Cloud Computing Fundamentals</li>
+                                <li><i class="fas fa-check-circle"></i> Cloud Service Models (IaaS, PaaS, SaaS)</li>
+                                <li><i class="fas fa-check-circle"></i> Introduction to AI & Machine Learning</li>
+                                <li><i class="fas fa-check-circle"></i> Internet of Things (IoT) Basics</li>
+                            </ul>
                         </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-icon"><i class="fas fa-chalkboard-teacher"></i></div>
-                            <h3>Tutor-Assisted Guidance</h3>
-                            <p>Receive personalized mentoring and support from experienced ICT facilitators.</p>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1434&q=80" alt="Networking"></div>
+                        <div class="course-header"><h3>Computer Networking</h3></div>
+                        <div class="course-body">
+                            <p>Learn how computers communicate and networks are built.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Networking Fundamentals</li>
+                                <li><i class="fas fa-check-circle"></i> IP Addressing & Subnetting</li>
+                                <li><i class="fas fa-check-circle"></i> Network Protocols</li>
+                                <li><i class="fas fa-check-circle"></i> Wireless Networking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Teacher Upskilling -->
+                <div class="course-grid" id="teacher">
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1332&q=80" alt="Teacher Training"></div>
+                        <div class="course-header"><h3>Digital Competence for Educators</h3></div>
+                        <div class="course-body">
+                            <p>Specifically designed to help teachers integrate ICT into teaching and learning.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Digital Pedagogy & Teaching Methods</li>
+                                <li><i class="fas fa-check-circle"></i> Classroom Technology Integration</li>
+                                <li><i class="fas fa-check-circle"></i> Educational Software & Digital Tools</li>
+                                <li><i class="fas fa-check-circle"></i> Creating Digital Learning Materials using AI</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1526379095098-400073c0d377?ixlib=rb-4.0.3&auto=format&fit=crop&w=1331&q=80" alt="Python Teaching"></div>
+                        <div class="course-header"><h3>Python Programming for Teachers</h3></div>
+                        <div class="course-body">
+                            <p>Master Python programming to effectively teach coding from Form 1 to Form 5.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Python Basics & Syntax</li>
+                                <li><i class="fas fa-check-circle"></i> Teaching Programming Concepts</li>
+                                <li><i class="fas fa-check-circle"></i> Creating Coding Exercises</li>
+                                <li><i class="fas fa-check-circle"></i> Project-Based Learning in Python</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="course-card">
+                        <div class="course-image"><img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Cybersecurity Teaching"></div>
+                        <div class="course-header"><h3>Cybersecurity for Teachers</h3></div>
+                        <div class="course-body">
+                            <p>Equip yourself to teach cybersecurity concepts to students from Form 1-5.</p>
+                            <ul class="course-skills">
+                                <li><i class="fas fa-check-circle"></i> Cybersecurity Fundamentals for Educators</li>
+                                <li><i class="fas fa-check-circle"></i> Teaching Online Safety</li>
+                                <li><i class="fas fa-check-circle"></i> Ethical Hacking Concepts for Classrooms</li>
+                                <li><i class="fas fa-check-circle"></i> School Network Security Basics</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- About Us Page -->
-    <div class="page" id="about-page">
-        <section class="page-header">
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about">
+        <div class="page-header">
             <div class="container">
                 <h1>About FutureSkills ICT & Digital Skills Centre</h1>
-                <p>Empowering educators and professionals with future-ready competencies through accessible, practical, and guided ICT learning environments</p>
+                <p>FutureSkills ICT & Digital Skills Centre is a Zambian startup dedicated to developing digital skills, strengthening workforce capabilities, and promoting innovation through technology. Originally established as ClickIT Academy and registered in 2019, the Centre's planned launch was delayed by the COVID-19 pandemic. Today, FutureSkills is being revitalized and expanded in response to Zambia's Enhanced Competency-Based Curriculum and the growing demand for industry-relevant digital skills.</p>
+
+<p>Our mission is to empower learners, educators, professionals, entrepreneurs, and organisations with future-ready competencies through accessible, practical, and guided ICT learning. We are building a collaborative hub for digital skills development, teacher capacity building, innovation, technology transfer, and entrepreneurship.
+
+<p>As we enter this launch phase, we are actively seeking strategic partnerships with universities, industry, development organisations, and technology leaders who share our vision of expanding access to high-quality digital education. Through these collaborations, we aim to accelerate knowledge exchange, strengthen local capacity, and create sustainable opportunities that prepare communities for the digital economy.</p>
+
+<p><strong>Please note:</strong> Some images displayed on this website are representative placeholders and are being used during the Centre's development phase. They will be progressively replaced with photographs of our facilities, programmes, partners, and community activities as FutureSkills becomes fully operational.</p>
+
+</p>
             </div>
-        </section>
+        </div>
         
-        <section class="page-content">
+        <div class="section-padding">
             <div class="container">
-                <!-- About Image -->
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1486&q=80" alt="FutureSkills ICT Centre - Chingola">
                 </div>
                 
-                <div class="content-section">
-                    <h2>Welcome to FutureSkills Chingola</h2>
-                    <p>We are an <strong>emerging ICT skills training center based in Chingola, Zambia</strong>, dedicated to bridging the digital skills gap in our community and beyond. Located in the heart of the Copperbelt Province, our center serves as a hub for digital innovation and teacher empowerment.</p>
-                    
-                    <p>Our mission is to <strong>provide affordable, practical, and guided ICT learning environments</strong> that enable teachers and professionals to acquire globally relevant digital skills aligned with national education priorities. We focus on solving the critical shortage of digitally competent teachers in Zambian schools while also serving corporate employees, students, and community members seeking employable ICT skills.</p>
-                    
-                    <p>We understand the challenges facing Zambian education today: limited access to modern computer laboratories, inadequate opportunities for advanced ICT training, lack of guided self-learning environments, and high costs of independent online learning. FutureSkills was established specifically to address these gaps by offering a teacher-centered ICT learning ecosystem that blends self-paced online study with structured local support.</p>
+                <div style="margin-bottom:50px;">
+                    <h2 style="font-size:32px;color:var(--primary-blue);margin-bottom:20px;padding-bottom:10px;border-bottom:3px solid var(--accent-orange);display:inline-block;">Welcome to FutureSkills Chingola</h2>
+                    <p style="font-size:17px;margin-top:20px;">We are an <strong>emerging ICT skills training center based in Chingola, Zambia</strong>, dedicated to bridging the digital skills gap in our community and beyond. Located in the heart of the Copperbelt Province, our center serves as a hub for digital innovation and teacher empowerment.</p>
+                    <p style="font-size:17px;margin-top:15px;">Our mission is to <strong>provide affordable, practical, and guided ICT learning environments</strong> that enable teachers and professionals to acquire globally relevant digital skills aligned with national education priorities. We focus on solving the critical shortage of digitally competent teachers in Zambian schools.</p>
                 </div>
                 
-                <div class="content-section">
-                    <h2>Our Vision & Mission</h2>
-                    
-                    <div style="background-color: rgba(26, 95, 158, 0.05); padding: 30px; border-radius: var(--radius); margin-bottom: 30px;">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 15px;">Vision</h3>
-                        <p style="font-size: 20px; font-style: italic; color: var(--primary-blue);">To be a leading ICT and digital skills centre empowering educators and professionals with future-ready competencies.</p>
+                <div style="margin-bottom:50px;">
+                    <h2 style="font-size:32px;color:var(--primary-blue);margin-bottom:20px;padding-bottom:10px;border-bottom:3px solid var(--accent-orange);display:inline-block;">Our Vision & Mission</h2>
+                    <div style="background:rgba(10,36,114,0.05);padding:30px;border-radius:var(--radius);margin-top:20px;">
+                        <h3 style="color:var(--primary-blue);margin-bottom:10px;">Vision</h3>
+                        <p style="font-size:18px;font-style:italic;color:var(--primary-blue);">To be a leading ICT and digital skills centre empowering educators and professionals with future-ready competencies.</p>
                     </div>
-                    
-                    <div style="background-color: rgba(245, 124, 0, 0.05); padding: 30px; border-radius: var(--radius); margin-bottom: 30px;">
-                        <h3 style="color: var(--accent-orange); margin-bottom: 15px;">Mission</h3>
-                        <p style="font-size: 20px; font-style: italic; color: var(--accent-orange);">To provide affordable, practical, and guided ICT learning environments that enable teachers and professionals to acquire globally relevant digital skills aligned with national education priorities.</p>
+                    <div style="background:rgba(249,115,22,0.05);padding:30px;border-radius:var(--radius);margin-top:15px;">
+                        <h3 style="color:var(--accent-orange);margin-bottom:10px;">Mission</h3>
+                        <p style="font-size:18px;font-style:italic;color:var(--accent-orange);">To provide affordable, practical, and guided ICT learning environments that enable teachers and professionals to acquire globally relevant digital skills aligned with national education priorities.</p>
                     </div>
                 </div>
                 
-                <div class="content-section">
-                    <h2>Our Core Values</h2>
-                    
+                <div>
+                    <h2 style="font-size:32px;color:var(--primary-blue);margin-bottom:20px;padding-bottom:10px;border-bottom:3px solid var(--accent-orange);display:inline-block;">Our Core Values</h2>
                     <div class="values-grid">
-                        <div class="value-card">
-                            <h3>Professional Integrity</h3>
-                            <p>We maintain the highest standards of professionalism, transparency, and ethical conduct in all our operations and interactions.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <h3>Practical Competence</h3>
-                            <p>We focus on developing immediately applicable skills through hands-on practice and real-world problem-solving.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <h3>Accessibility & Inclusion</h3>
-                            <p>We strive to make quality digital skills training accessible to all, regardless of background, location, or prior experience.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <h3>Lifelong Learning</h3>
-                            <p>We foster a culture of continuous skill development to keep pace with rapid technological change.</p>
-                        </div>
-                        
-                        <div class="value-card">
-                            <h3>Ethical Technology Use</h3>
-                            <p>We promote responsible, secure, and ethical application of digital technologies in education and workplaces.</p>
-                        </div>
+                        <div class="value-card"><h3>Professional Integrity</h3><p>Highest standards of professionalism, transparency, and ethical conduct.</p></div>
+                        <div class="value-card"><h3>Practical Competence</h3><p>Focus on developing immediately applicable skills through hands-on practice.</p></div>
+                        <div class="value-card"><h3>Accessibility & Inclusion</h3><p>Quality digital skills training accessible to all, regardless of background.</p></div>
+                        <div class="value-card"><h3>Lifelong Learning</h3><p>Continuous skill development to keep pace with technological change.</p></div>
+                        <div class="value-card"><h3>Ethical Technology Use</h3><p>Responsible, secure, and ethical application of digital technologies.</p></div>
                     </div>
-                </div>
-                
-                <div class="content-section">
-                    <h2>Our Background & Rationale</h2>
-                    <p>FutureSkills ICT & Digital Skills Centre evolved from foundational computer training into a specialized teacher upskilling and digital competence hub, responding to:</p>
-                    <ul>
-                        <li>National education reforms in Zambia</li>
-                        <li>Rapid technological change impacting all sectors</li>
-                        <li>The implementation of the Republic of Zambia Enhanced Competency-Based Curriculum (ECBC)</li>
-                        <li>The urgent need for teacher capacity building in ICT</li>
-                    </ul>
-                    
-                    <p>Our primary focus is to support teachers with the ICT knowledge, confidence, and practical exposure required to effectively deliver compulsory ICT education in schools across Zambia, from Form 1 to Form 5.</p>
-                </div>
-                
-                <div class="content-section">
-                    <h2>Compliance & Regulatory Positioning</h2>
-                    <p>FutureSkills operates strategically as a facilitated digital learning centre:</p>
-                    <ul>
-                        <li>We provide modern infrastructure, guided study environments, and mentorship</li>
-                        <li>Learning content is delivered via third-party global platforms (Coursera, edX, Cisco, etc.)</li>
-                        <li>Certification is issued externally by course providers</li>
-                        <li>We do not issue our own academic certificates or diplomas</li>
-                    </ul>
-                    
-                    <p>This model ensures we operate without undue TEVET registration requirements while fully supporting national ICT skills objectives and maintaining regulatory clarity.</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- Contact Page -->
-    <div class="page" id="contact-page">
-        <section class="page-header">
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact">
+        <div class="page-header">
             <div class="container">
                 <h1>Contact FutureSkills ICT & Digital Skills Centre</h1>
                 <p>Get in touch to learn more about our programs, schedule a visit, or discuss partnership opportunities</p>
             </div>
-        </section>
+        </div>
         
-        <section class="page-content">
+        <div class="section-padding">
             <div class="container">
                 <div class="contact-grid">
+                    <!-- Contact Info -->
                     <div class="contact-info">
-                        <h2 style="color: var(--primary-blue); margin-bottom: 25px;">Visit Us in Chingola</h2>
-                        
+                        <h2 style="color:var(--primary-blue);margin-bottom:25px;">Visit Us in Chingola</h2>
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <h3>Our Location</h3>
-                                <p><strong>57 Jacaranda Street, Kabundi North</strong><br>
-                                Chingola, Zambia<br>
-                                Copperbelt Province</p>
-                            </div>
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div><h3>Our Location</h3><p><strong>Plot 15, Kabundi Road, Kabundi North</strong><br>Chingola, Copperbelt Province<br>Zambia</p></div>
                         </div>
-                        
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone"></i>
-                            </div>
-                            <div>
-                                <h3>Call Us</h3>
-                                <p><strong>+260 972 598 424</strong><br>
-                                Office Hours: 8:00 AM - 5:00 PM (Mon-Fri)<br>
-                                Saturday: 9:00 AM - 1:00 PM</p>
-                            </div>
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div><h3>Call Us</h3><p><strong>+260 972 598 424</strong><br>Office Hours: 8:00 AM - 5:00 PM (Mon-Fri)<br>Saturday: 9:00 AM - 1:00 PM</p></div>
                         </div>
-                        
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h3>Email Us</h3>
-                                <p><strong>info@futureskillschingola.org</strong><br>
-                                <strong>teachers@futureskillschingola.org</strong></p>
-                            </div>
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div><h3>Email Us</h3><p><strong>training@futureskillszambia.org</strong><br><strong>support@futureskillszambia.org</strong></p></div>
                         </div>
-                        
                         <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <div>
-                                <h3>Operating Hours</h3>
-                                <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
-                                Saturday: 9:00 AM - 1:00 PM<br>
-                                Sunday: Closed</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Map Placeholder -->
-                        <div class="map-placeholder">
-                            <i class="fas fa-map" style="font-size: 48px; color: var(--primary-blue); margin-right: 10px;"></i>
-                            <span>57 Jacaranda Street, Kabundi North, Chingola</span>
+                            <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                            <div><h3>Operating Hours</h3><p>Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p></div>
                         </div>
                     </div>
                     
+                    <!-- Contact Form -->
                     <div class="contact-form">
-                        <h2 style="color: var(--primary-blue); margin-bottom: 25px;">Send Us a Message</h2>
-                        
+                        <h2 style="color:var(--primary-blue);margin-bottom:25px;">Send Us a Message</h2>
                         <form id="contactForm">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" class="form-control" required>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
                                 <input type="email" id="email" class="form-control" required>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" class="form-control" placeholder="e.g., +260 972 598 424">
+                                <input type="tel" id="phone" class="form-control" placeholder="e.g., +260 977 123 456">
                             </div>
-                            
                             <div class="form-group">
                                 <label for="category">I am a *</label>
                                 <select id="category" class="form-select" required>
@@ -1854,232 +1256,186 @@
                                     <option value="other">Other</option>
                                 </select>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="message">Your Message *</label>
-                                <textarea id="message" class="form-control" required placeholder="Tell us about your training needs or questions..."></textarea>
+                                <textarea id="message" class="form-control" required></textarea>
                             </div>
-                            
-                            <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+                            <button type="submit" class="btn-primary" style="width:100%;">Send Message</button>
                         </form>
                     </div>
                 </div>
-                
-                <div class="content-section" style="margin-top: 60px;">
-                    <h2>Partnership & Collaboration Opportunities</h2>
-                    <p>FutureSkills welcomes partnerships with:</p>
-                    <ul>
-                        <li><strong>Schools & Educational Institutions:</strong> Arrange group training for your teachers</li>
-                        <li><strong>Corporate Organizations:</strong> Upskill your employees in digital competencies</li>
-                        <li><strong>Government Agencies:</strong> Collaborate on national ICT skills initiatives</li>
-                        <li><strong>NGOs & Community Organizations:</strong> Reach underserved communities with digital skills</li>
-                        <li><strong>International Partners:</strong> Connect with global digital education initiatives</li>
-                    </ul>
-                    
-                    <p style="margin-top: 20px;">Contact us at <strong>partnerships@futureskillschingola.org</strong> to discuss how we can work together to advance digital skills in Zambia.</p>
-                </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
+            <div class="footer-grid">
+                <div>
                     <div class="footer-logo">Future<span>Skills</span></div>
-                    <p>FutureSkills ICT & Digital Skills Centre is a registered ICT-focused learning institution providing accessible, practical, and future-oriented digital skills to teachers, corporate employees, students, and the wider community in Zambia.</p>
-                    <p style="margin-top: 15px;"><i class="fas fa-map-marker-alt"></i> 57 Jacaranda Street, Kabundi North, Chingola, Zambia</p>
-                    <p><i class="fas fa-phone"></i> +260 972 598 424</p>
+                    <p style="margin-top:15px;color:#ccc;font-size:15px;">FutureSkills ICT & Digital Skills Centre is a registered ICT-focused learning institution providing accessible, practical, and future-oriented digital skills.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
-                
-                <div class="footer-links-section">
-                    <h3 class="footer-heading">Quick Links</h3>
+                <div>
+                    <h3 style="color:white;margin-bottom:20px;">Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a data-page="home">Home</a></li>
-                        <li><a data-page="teachers">For Teachers</a></li>
-                        <li><a data-page="courses">Courses</a></li>
-                        <li><a data-page="about">About Us</a></li>
-                        <li><a data-page="contact">Contact Us</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#teachers">For Teachers</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-contact">
-                    <h3 class="footer-heading">Our Core Values</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-star" style="color: #f57c00;"></i> Professional Integrity</li>
-                        <li><i class="fas fa-star" style="color: #f57c00;"></i> Practical Competence</li>
-                        <li><i class="fas fa-star" style="color: #f57c00;"></i> Accessibility & Inclusion</li>
-                        <li><i class="fas fa-star" style="color: #f57c00;"></i> Lifelong Learning</li>
-                        <li><i class="fas fa-star" style="color: #f57c00;"></i> Ethical Technology Use</li>
+                <div>
+                    <h3 style="color:white;margin-bottom:20px;">Our Core Values</h3>
+                    <ul class="footer-links" style="color:#ccc;">
+                        <li>Professional Integrity</li>
+                        <li>Practical Competence</li>
+                        <li>Accessibility & Inclusion</li>
+                        <li>Lifelong Learning</li>
+                        <li>Ethical Technology Use</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="copyright">
                 <p>&copy; 2026 FutureSkills ICT & Digital Skills Centre. All rights reserved.</p>
-                <p>Empowering educators with future-ready competencies. A registered ICT learning and skills development institution based in Chingola, Zambia.</p>
+                <p>Empowering educators with future-ready competencies. Based in Chingola, Zambia.</p>
             </div>
         </div>
     </footer>
 
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
-        // Mobile Menu Toggle
+        // ===== MOBILE MENU =====
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (mobileMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('open');
+            const icon = this.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.className = 'fas fa-times';
             } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                icon.className = 'fas fa-bars';
             }
         });
         
-        // Page Navigation System - ALL LINKS FIXED
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pages = document.querySelectorAll('.page');
-        
-        function showPage(pageId) {
-            // Hide all pages
-            pages.forEach(page => {
-                page.classList.remove('active');
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-nav-links a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
             });
-            
-            // Show selected page
-            const activePage = document.getElementById(`${pageId}-page`);
-            if (activePage) {
-                activePage.classList.add('active');
-            }
-            
-            // Update active nav link
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('active');
+        });
+        
+        // ===== SMOOTH SCROLLING =====
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    
+                    // Update active state
+                    document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach(function(link) {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === targetId) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
-            
-            // Close mobile menu if open
-            if (mobileMenu.classList.contains('active')) {
-                mobileMenu.classList.remove('active');
-                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-            }
-            
-            // Scroll to top
-            window.scrollTo(0, 0);
-        }
+        });
         
-        // Set up navigation for ALL links with data-page attribute (Header + Footer)
-        document.querySelectorAll('[data-page]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const pageId = link.getAttribute('data-page');
-                showPage(pageId);
+        // ===== ACTIVE LINK ON SCROLL =====
+        const sections = document.querySelectorAll('section[id]');
+        
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY + 120;
+            
+            sections.forEach(function(section) {
+                const top = section.offsetTop;
+                const bottom = top + section.offsetHeight;
+                const id = section.getAttribute('id');
+                
+                if (scrollY >= top && scrollY < bottom) {
+                    document.querySelectorAll('.nav-links a, .mobile-nav-links a').forEach(function(link) {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
             });
         });
         
-        // Course Tab Switching
+        // ===== COURSE TABS =====
         const tabBtns = document.querySelectorAll('.tab-btn');
         
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class from all tabs and grids
-                tabBtns.forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.course-grid').forEach(grid => grid.classList.remove('active'));
+        tabBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                // Remove active from all tabs
+                tabBtns.forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
                 
-                // Add active class to clicked tab
-                btn.classList.add('active');
+                // Hide all grids
+                document.querySelectorAll('.course-grid').forEach(function(grid) {
+                    grid.classList.remove('active');
+                });
                 
-                // Show corresponding grid
-                const tabId = btn.getAttribute('data-tab');
+                // Show selected grid
+                const tabId = this.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
         });
         
-        // Contact Form Submission
+        // ===== CONTACT FORM =====
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
+            contactForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                // Get form values
                 const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const category = document.getElementById('category').value;
-                
-                alert(`Thank you ${name}! Your message has been received. We will contact you at ${email} regarding ${category} opportunities.`);
-                
-                // Reset form
-                contactForm.reset();
+                alert('Thank you ' + name + '! Your message has been received. We will contact you soon.');
+                this.reset();
             });
         }
         
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-            }
-        });
-        
-        // PWA Installation Banner
+        // ===== INSTALL BANNER =====
         let deferredPrompt;
         const installBanner = document.getElementById('installBanner');
         const installBtn = document.getElementById('installBtn');
         const closeBanner = document.getElementById('closeBanner');
         
-        // Check if the app is already installed
-        window.addEventListener('beforeinstallprompt', (e) => {
-            // Prevent Chrome 67 and earlier from automatically showing the prompt
+        window.addEventListener('beforeinstallprompt', function(e) {
             e.preventDefault();
-            // Stash the event so it can be triggered later
             deferredPrompt = e;
-            // Show the install banner after a short delay
-            setTimeout(() => {
-                installBanner.classList.add('show');
-            }, 2000);
         });
         
-        // Check if app is already installed (for iOS or already installed)
-        window.addEventListener('appinstalled', () => {
-            // Hide the install banner
-            installBanner.classList.remove('show');
-            console.log('PWA was installed');
-        });
-        
-        installBtn.addEventListener('click', async () => {
+        installBtn.addEventListener('click', async function() {
             if (!deferredPrompt) {
-                // If no deferred prompt, show instructions for manual install
-                alert('To install this app on your device:\n\n' +
-                      'Android: Open menu (⋮) → "Add to Home screen"\n' +
-                      'iPhone: Share icon → "Add to Home Screen"');
+                alert('To install this app:\n\nAndroid: Open menu (⋮) → "Add to Home screen"\niPhone: Share icon → "Add to Home Screen"');
                 return;
             }
-            // Show the install prompt
             deferredPrompt.prompt();
-            // Wait for the user to respond to the prompt
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User response to the install prompt: ${outcome}`);
-            // We no longer need the prompt. Clear it up.
+            const result = await deferredPrompt.userChoice;
+            console.log('User response:', result.outcome);
             deferredPrompt = null;
-            // Hide the banner
             installBanner.classList.remove('show');
         });
         
-        closeBanner.addEventListener('click', () => {
+        closeBanner.addEventListener('click', function() {
             installBanner.classList.remove('show');
         });
-        
-        // Initialize first page
-        showPage('home');
     </script>
+
 </body>
 </html>
